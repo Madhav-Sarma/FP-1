@@ -100,8 +100,114 @@ const Layout = ({ children }) => {
 
 
       {/* Sidebar */}
+
+      <Drawer
+        variant="permanent"
+        sx={{
+          width: '220px',
+          flexShrink: 0,
+          zIndex: (theme) => theme.zIndex.drawer,
+          '& .MuiDrawer-paper': {
+            width: '220px',
+            backgroundColor: '#1976D2',
+          },
+        }}
+      >
+        <Toolbar />
+        <List>
+          <>
+<ListItem button component={Link} to={`/menteedashboard/${menteeId}`} sx={{ mb: 2, color: 'white' }}>
+              <DashboardIcon />
+              <ListItemText primary="Basic Info" />
+            </ListItem>
+            <ListItem button onClick={handleMenuClick} sx={{ mb: 2, color: 'white' }}>
+              <AssignmentIcon />
+              <ListItemText primary="Performance" />
+            </ListItem>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              sx={{
+                '& .MuiPaper-root': {
+                  backgroundColor: '#1976D2',
+                  color: 'white',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                },
+              }}
+            >
+              <MenuItem onClick={handleMenuClose} sx={{ justifyContent: 'flex-start' }}>
+                <Button
+                  variant="text"
+                  fullWidth
+                  component={Link}
+                  to="/academics"
+                  sx={{
+                    textAlign: 'left',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: '#115293',
+                    },
+                  }}
+                >
+                  <SchoolIcon sx={{ mr: 1 }} />
+                  Academics
+                </Button>
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose} sx={{ justifyContent: 'flex-start' }}>
+                <Button
+                  variant="text"
+                  fullWidth
+                  component={Link}
+                  to="/nonacademics"
+                  sx={{
+                    textAlign: 'left',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: '#115293',
+                    },
+                  }}
+                >
+                  <SportsEsportsIcon sx={{ mr: 1 }} />
+                  Non-Academics
+                </Button>
+              </MenuItem>
+            </Menu>
+            <ListItem button component={Link} to="/attendance" sx={{ mb: 2, color: 'white' }}>
+              <AssignmentTurnedInIcon />
+              <ListItemText primary="Attendance" />
+            </ListItem>
+            <ListItem button component={Link} to="/approvals" sx={{ mb: 2, color: 'white' }}>
+              <AssignmentIcon />
+              <ListItemText primary="Approvals" />
+            </ListItem>
+            <ListItem button component={Link} to="/meetingschedules" sx={{ mb: 2, color: 'white' }}>
+              <EventIcon />
+              <ListItemText primary="Meeting Schedules" />
+            </ListItem>
+            <ListItem button component={Link} to="/changepassword" sx={{ mb: 2, color: 'white' }}>
+              <LockIcon />
+              <ListItemText primary="Change Password" />
+            </ListItem>
+            <Button sx={{ color: 'white', marginTop: 'auto' }} onClick={handleLogout}>
+              <ExitToApp />
+              Logout
+            </Button>
+          </>
+        </List>
+      </Drawer>
+=======
       <div className="d-flex flex-grow-1">
-        
+
 
         {/* Main Content */}
         <main className="flex-grow-1 p-3" style={{ overflow: 'auto', marginTop: '56px' }}>
